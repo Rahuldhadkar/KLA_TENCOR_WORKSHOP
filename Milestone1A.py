@@ -1,13 +1,15 @@
 from datetime import datetime
 import yaml
+from time import sleep
 
 fl = open("Milestone1A.yaml", "r")
-f = open("log.txt", "w")
+f = open("log1.txt", "w")
 dic = dict()
 
 def Task(ts,cp):
     f.write(str(datetime.now())+";"+cp+" Entry\n")
     f.write(str(datetime.now())+";"+cp+" Executing "+ts['Function']+" ("+ts['Inputs']['FunctionInput']+", "+ts['Inputs']['ExecutionTime']+")\n")
+    sleep(int(ts['Inputs']['ExecutionTime']))
     f.write(str(datetime.now())+";"+cp+" Exit\n")
 
 def Flow(fl,cp):
